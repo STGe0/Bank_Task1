@@ -49,6 +49,9 @@ namespace cur
             dataGridViewCur.Columns[4].HeaderText = "Номинал";
             dataGridViewCur.Columns[4].Width = 150;
 
+            
+
+            Update();
         }
 
         private void tabCur_Selected(object sender, TabControlEventArgs e)
@@ -169,6 +172,11 @@ namespace cur
 
             adapter.SelectCommand = sqlCom;
             adapter.Fill(table);
+
+            if(table.Rows.Count > 0)
+            {
+                tabCur.SelectTab(tabPage2);
+            }
 
             dataGridViewF.DataSource = table;
 
